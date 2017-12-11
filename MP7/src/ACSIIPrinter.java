@@ -1,7 +1,9 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+
 
 
 public class ACSIIPrinter {
@@ -10,14 +12,53 @@ public class ACSIIPrinter {
 	static File f = null;
 	static int width = 300;
 	static int height = 300;
-	static int res = 2;	
+	static int res = 0;	
 
 
 	
 	public static void main(String args[]) throws IOException {
-		
+        Scanner lineScanner = new Scanner(System.in);
+
+        System.out.println("Please select an image between 1 and 7:");
+
+        String nextLine = lineScanner.nextLine();
+        Scanner inputScanner = new Scanner(nextLine);
+        int picInput = 0;
+        picInput = inputScanner.nextInt();
+        
+        System.out.println("Please select a resolution:");
+        nextLine = lineScanner.nextLine();
+        inputScanner = new Scanner(nextLine);
+
+        res = inputScanner.nextInt();
+        inputScanner.close();
+        lineScanner.close();
+        
+        int picNumber = picInput;
+        String fileName = "";
+        switch (picNumber) {
+        		case 1: fileName = "resources/appleicon.png";
+        			break;
+        		case 2: fileName = "resources/starmp7.png";
+        			break;
+        		case 3: fileName = "resources/columni.jpg";
+        			break;
+        		case 4: fileName = "resources/cs125-460x460.png";
+        			break;
+        		case 5: fileName = "resources/pooemoji.png";
+        			break;
+        		case 6: fileName = "resources/caticon.png";
+        			break;
+        		case 7: fileName = "resources/will-smith-2.jpg";
+        }
+        
+        
+        for(int clear = 0; clear < 1000; clear++) { //clears the console
+            System.out.print("\b") ;
+        }        
+        
 		try {
-			f = new File("resources/will-smith-2.jpg");
+			f = new File(fileName);
 			image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 			image = ImageIO.read(f);
 		} catch (IOException e) {
