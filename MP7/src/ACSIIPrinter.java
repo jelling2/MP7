@@ -19,7 +19,7 @@ public class ACSIIPrinter {
 	public static void main(String args[]) throws IOException {
         Scanner lineScanner = new Scanner(System.in);
 
-        System.out.println("Please select an image between 1 and 6:");
+        System.out.println("Please select an image between 1 and 5:");
 
         String nextLine = lineScanner.nextLine();
         Scanner inputScanner = new Scanner(nextLine);
@@ -45,9 +45,9 @@ public class ACSIIPrinter {
         			break;
         		case 4: fileName = "resources/cs125-460x460.png";
         			break;
-        		case 5: fileName = "resources/caticon.png";
+        		case 5: fileName = "resources/will-smith-2.jpg";
         			break;
-        		case 6: fileName = "resources/will-smith-2.jpg";
+        		
         }
         
         
